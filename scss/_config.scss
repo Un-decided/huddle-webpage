@@ -1,0 +1,56 @@
+$Primary: hsl(322, 100%, 66%);
+$Very-Pale-Cyan: hsl(193, 100%, 96%);
+$Very-Dark-Cyan: hsl(192, 100%, 9%);
+$Grayish-Blue: hsl(208, 11%, 55%);
+$gap: 1.9rem;
+
+$font-weights: (
+    'light': 400,
+    'regular': 600,
+    'bold': 700
+);
+
+$breakpoint: (
+    'sm': 440px,
+    'md': 720px,
+    'lg': 960px,
+    'xl': 1200px
+);
+
+@function breakpoints($bp) {
+    @return map-get($breakpoint , $bp)
+};
+
+@function weights($weight-name) {
+    @return map-get($font-weights , $weight-name)
+};
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+html {
+    font-size: 18px;
+}
+
+img {
+    max-width: 100%;
+}
+
+button {
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: weights(regular);
+}
+
+ul {
+    list-style-type: none;
+}

@@ -1,0 +1,612 @@
+@import 'config';
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+/* -- Mixin-- */
+@mixin transition {
+    transition: all 0.6s ease;
+}
+
+@mixin hover {
+    cursor: pointer;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.4));
+}
+
+@mixin flex($direction) {
+    display: flex;
+    flex-direction: $direction;
+}
+
+@mixin breakpoint($bp) {
+    @media (min-width: breakpoints($bp)) {
+     @content
+    }
+}
+
+/* -- Reusable classes -- */
+.d-grid {
+    display: grid;
+}
+
+.btn {
+    border-radius: 45px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.144);
+}
+
+.bold-container {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+
+.paragraph-container {
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
+}
+
+.grid-paragraph {
+    color: $Grayish-Blue;
+}
+
+/* -- Header -- */
+.header-container {
+    display: inline-flex;
+    position: sticky;
+    height: 3.5rem;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 6rem;
+    margin: 0 1rem;
+    margin-bottom: 0.2rem;
+
+    @include breakpoint(lg) {
+        margin-left: 2.5rem;
+    }
+
+    @include breakpoint(xl) {
+        margin-left: 3.5rem;
+    }
+}
+
+.header-btn-container {
+    margin-right: 0.8rem;
+
+    @include breakpoint(lg) {
+        margin-right: 2rem;
+    }
+
+    @include breakpoint(xl) {
+        margin-right: 4rem;
+    }
+    
+    .header-btn {
+        width: 6rem;
+        height: 1.6rem;
+        background-color: #fff;
+        font-size: 0.6rem;
+        @include transition();
+   
+        &:hover {
+            @include hover();
+            border: 2px dashed $Primary;
+            transition-delay: 0.1s;
+        }
+        
+        @include breakpoint(md) {
+            width: 6.8rem;
+            height: 1.8rem;
+            font-size: 0.7rem;
+        }
+    }
+}
+
+/*-- Main Section -- */
+.main-section {
+    background-color: $Very-Pale-Cyan;
+    @include flex(column);
+    gap: 4rem;
+    background-image: url(/images/bg-hero-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    @include breakpoint(lg) {
+        background-image: url(/images/bg-hero-desktop.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        gap: 3rem;
+    } 
+}
+
+.main-text {
+    margin: 0 2.3rem;
+    @include flex(column);
+    gap: 1.8rem;
+
+    @include breakpoint(md) {
+        margin: 0 2.7rem;
+    }
+
+    @include breakpoint(lg) {
+        @include flex(row);
+        gap: 2rem;   
+        margin-right: 0;   
+    }
+
+    @include breakpoint(xl) {
+        gap: 5rem;
+        margin-right: 0;
+        margin-left: 3.5rem;
+    }
+
+    .main-text-container {
+        @include flex(column);
+        gap: 1.2rem;
+
+        @include breakpoint(lg) {
+            width: 80%;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        @include breakpoint(xl) {
+            width: 33%;
+            margin-bottom: 4rem;
+            gap: 1.5rem;
+        }
+    }
+
+    .bold-container-text {
+        font-size: 1.3rem;
+
+        @include breakpoint(md) {
+            font-size: 1.5rem;
+        }
+
+        @include breakpoint(lg) {
+            text-align: left;
+            font-size: 1.4rem;
+        }
+
+        @include breakpoint(xl) {
+            font-size: 1.8rem;
+        }
+    }
+
+    .paragraph-container-text {
+        font-size: 0.8rem;
+        line-height: 1.3rem;
+
+        @include breakpoint(md) {
+            font-size: 1rem;
+        }
+
+        @include breakpoint(lg) {
+            text-align: left;
+            font-size: 0.7rem;
+        }
+
+        @include breakpoint(xl) {
+            font-size: 0.8rem;
+        }
+    }
+
+    .get-started {
+        align-self: center;
+
+        @include breakpoint(lg) {
+            align-self: flex-start;
+        }
+    }
+
+    .get-started-btn {
+        width: 13rem;
+        height: 2.3rem;
+        font-size: 0.6rem;
+        background-color: $Primary;
+        color: #fff;
+        @include transition();
+
+        &:hover {
+           @include hover();
+           transform: translateY(-4px); 
+        }
+
+        @include breakpoint(md) {
+            width: 13.7rem;
+            height: 2.6rem;
+            font-size: 0.7rem;
+        }
+
+        @include breakpoint(lg) {
+            width: 11.5rem;
+            height: 2.2rem;
+            font-size: 0.6rem;
+        }
+
+        @include breakpoint(xl) {
+            width: 13rem;
+            height: 2.7rem;
+            font-size: 0.7rem;
+        }
+    }
+}
+
+.main-section-image {
+    margin-bottom: 1.8rem;
+
+    @include breakpoint(lg) {
+        margin-bottom: 1rem;
+        width: fit-content;
+
+        img {
+            height: 95%;
+        }
+    }
+
+    @include breakpoint(xl) {
+        width: 60%;
+        margin-bottom: 0;
+
+        img {
+            height: 90%;
+        }
+    }
+}
+/* -- Grid Section -- */
+.d-grid-container {
+    box-shadow: rgba(0, 0, 0, 0.103) 0px 5px 15px;
+    margin: 2.3rem 1.5rem 0 1.5rem;
+    border-radius: 10px;
+    gap: 3rem;
+    display: grid;
+    padding: 3rem 1.4rem;
+
+    @include breakpoint(md) {
+        margin: 2.3rem 2rem 0 2rem;
+        padding: 3.5rem 3.5rem;
+    }
+
+    @include breakpoint(lg) {
+        @include flex(row);
+        margin: 2.3rem 4rem 0 4rem;
+        padding: 2rem 1.5rem 4rem 5rem;
+        gap: 6rem;
+    }
+
+    @include breakpoint(xl) {
+        margin-left: 6rem;
+        margin-right: 6rem;
+        gap: 10rem;
+        padding: 2rem 2rem 2rem 6rem;
+    }
+
+    &:first-of-type {
+        @include breakpoint(lg) {
+            margin-top: 5rem;
+        }
+
+        @include breakpoint(xl) {
+            margin-top: 6rem;
+        }
+    }
+
+    &:nth-of-type(2) {
+        @include breakpoint(xl) {
+            gap: 10rem;
+            padding-right: 3rem;
+            padding-bottom: 2.5rem;
+            padding-top: 3rem;
+
+            .flow-together-text-container {
+                width: 60%;
+            }
+        }
+    }
+
+    h3 {
+        font-size: 1rem;
+
+        @include breakpoint(md) {
+            font-size: 1.2rem;
+        }
+
+        @include breakpoint(lg) {
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        @include breakpoint(xl) {
+            font-size: 1.3rem;
+        }
+    }
+
+    p {
+        font-size: 0.8rem;
+        line-height: 1.1rem;
+
+        @include breakpoint(md) {
+            font-size: 0.9rem;
+            line-height: 1.3rem;
+        }
+
+        @include breakpoint(lg) {
+            text-align: left;
+            font-size: 0.7rem;
+        }
+    }
+
+    .inner-flex {
+        @include flex(column);
+        gap: 0.5rem;
+
+        @include breakpoint(lg) {
+            align-self: center;
+            width: 80%;
+        }
+
+        @include breakpoint(xl) {
+            width: 50%;
+            margin-bottom: 2rem;
+        }
+    }
+
+    .flow-together-image-container,
+    .users-image-container,
+    .grow-together-image-container {
+        @include breakpoint(lg) {
+            width: 80%;
+        }
+        
+        @include breakpoint(xl) {
+            width: 60%;
+        }
+
+        .flow-together-image,
+        .grow-together-image,
+        .users-image {
+            @include  breakpoint(xl) {
+                height: 90%;
+            }
+        } 
+    }
+
+    .flow-together-container {
+        @include breakpoint(xl) {
+            gap: 6rem;
+        }
+    }
+}
+
+
+.grow-together-container,
+.users-container {
+    @include breakpoint(lg) {
+        flex-direction: row-reverse;
+    }
+}
+
+.call-to-action {
+    background-image: linear-gradient(to bottom, #fff 60%, $Very-Dark-Cyan 40%);
+}
+
+.call-to-action-grid {
+    box-shadow: rgba(0, 0, 0, 0.103) 0px 5px 15px;
+    background-color: #fff;
+    margin: 2.3rem 1rem 0 1rem;
+    border-radius: 10px;
+    padding: 2rem 0 1.7rem 0;
+    @include flex(column);
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+
+    
+    @include breakpoint(lg) {
+        width: 40%;
+        margin: 5rem auto 0 auto;
+    }
+
+    @include breakpoint(xl) {
+        padding-bottom: 2.3rem;
+        padding-top: 2.3rem;
+    }
+        
+    .call-to-action-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9rem;
+
+        @include breakpoint(md) {
+            font-size: 1.1rem;
+        }
+
+        @include breakpoint(lg) {
+            font-size: 1rem;
+        }
+
+        @include breakpoint(xl) {
+            font-size: 1.2rem;
+        }
+    }
+
+    .call-to-action-btn {
+        width: 10rem;
+        height: 2rem;
+        background-color: $Primary;
+        color: #fff;
+        font-weight: weights(light);
+        font-size: 0.5rem;
+        @include transition();
+
+        &:hover {
+            @include hover();
+        }
+
+        @include breakpoint(md) {
+            font-size: 0.6rem;
+            width: 12rem;
+            height: 2.2rem;
+        }
+
+        @include breakpoint(xl) {
+            font-size: 0.6rem;
+            width: 12.2rem;
+            height: 2.5rem;
+        }
+    }
+}
+
+/* Footer Section */
+footer{
+    background-color: $Very-Dark-Cyan;
+
+    @include breakpoint(lg) {
+        height: 19rem;
+    }
+} 
+
+.footer-container {
+    margin-top: -1rem;
+    padding-top: 4rem;
+
+    @include breakpoint(lg) {
+        @include flex(row);
+        padding: 3rem 3rem 0 3rem;
+        justify-content: space-between;
+    } 
+
+    .footer-text {
+        @include flex(column);
+        gap: 1rem;
+        color: $Very-Pale-Cyan;
+        margin: 0 1rem;
+
+        @include breakpoint(lg) {
+            margin: 0;
+            width: 30%;
+        }
+
+        .footer-logo {
+            width: 8rem;
+        }
+
+        .span-flex {
+            display: flex;
+            gap: 1rem;
+
+            .span-flex-image {
+                height: 14px;
+                width: 15px;
+                margin-top: 5px;
+            }
+
+            .location-icon{
+                width: 2rem;
+
+                @include breakpoint(sm) {
+                    width: 1.2rem;
+                }
+
+                @include breakpoint(md) {
+                    width: 1rem;
+                }
+
+                @include breakpoint(lg) {
+                    width: 2rem;
+                }
+            }
+
+            .span-flex-paragraph {
+                font-size: 0.7rem;
+                line-height: 1.3rem;
+                font-weight: weights(light);
+                font-family: 'Open Sans', sans-serif;
+            }
+        }
+    }
+
+    .footer-link-container {
+        margin: 2rem 1rem;
+
+        .footer-link-list {
+            @include breakpoint(lg) {
+                @include flex(row);
+                gap: 6rem;
+            }
+        }
+        
+        .footer-link-list li {
+            margin-top: 0.5rem;
+        }
+
+        .footer-link-list a {
+            color: $Very-Pale-Cyan;
+            font-size: 0.7rem;
+            font-weight: weights(light);
+            font-family: 'Open Sans', sans-serif;
+            transition: 0.5s ease-out;
+
+            &:hover {
+                border-bottom: 1px solid $Primary;
+            }
+        }
+    }
+
+    .footer-social {
+        @include flex(column);
+
+        @include breakpoint(lg) {
+            @include flex(column);
+            align-self: flex-end;
+            gap: 3.5rem;
+        }
+
+        .footer-social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 0.7rem;
+            color: $Very-Pale-Cyan;
+
+            @include breakpoint(lg) {
+                padding-top: 2.5rem;
+                justify-content: flex-start;
+            }
+            
+            .fa-brands {
+                border-radius: 50%;
+                border: 1px solid $Very-Pale-Cyan;
+                font-size: 0.7rem;
+                padding: 0.8rem 0.6rem;
+                @include transition();
+
+                @include breakpoint(lg) {
+                    font-size: 0.6rem;
+                    padding: 0.7rem 0.5rem;
+                }
+
+                &:hover {
+                    color: $Primary;
+                    border: 1px solid $Primary;
+                }
+
+            }
+        }
+
+        .copyright {
+            padding: 1.5rem 0 4rem 0;
+            font-size: 0.6rem;
+            color: $Very-Pale-Cyan;
+            font-weight: weights(light);
+            font-family: 'Open Sans', sans-serif;
+            align-self: center;
+
+            @include breakpoint(lg) {
+                padding: 4.5rem 0 0 0;
+            }
+        }
+    }
+}
